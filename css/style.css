@@ -110,6 +110,12 @@ body{
 .android:active,.ios:active{
 	background-position: 205px 0;
 }
+.mobile-title{
+	display: none;
+}
+.pc-title{
+	display: block;
+}
 
 @media (max-width: 767px){
 	html{
@@ -118,6 +124,22 @@ body{
 
 	#slide1{
 		flex-flow: column nowrap;
+	}
+	.description{
+		width: 75%;
+		text-align: center;
+	}
+	.inner-container{
+		width: 70%;
+	}
+	.mobile-title{
+		display: block;
+	}
+	.pc-title,.qcode{
+		display: none;
+	}
+	.download-icon{
+		text-align: center;
 	}
 }
 
