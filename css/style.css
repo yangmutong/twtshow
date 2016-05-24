@@ -1,0 +1,132 @@
+
+html{
+  	width: 100%;
+  	height: 100%;
+}
+body{
+  	width: 100%;
+  	height: 100%;
+  	margin: 0;
+  	font-family: 'Microsoft YaHei';
+  	font-size: 14px;
+}
+
+.loading{
+  	width: 100%;
+  	height: 100%;
+  	background-color: rgb(0,122,255);
+
+}
+
+#outer{
+	width: 100%;
+	color: #ffffff;
+	text-align: left;
+	height: 100%;
+}
+
+#slide1,#slide2,#slide3{
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: row nowrap; 
+}
+
+#slide1{
+	background-image: url('../icon/background-1.png');
+}
+#slide2{
+	background-image: url('../icon/background-2.png');
+	flex-flow: row-reverse nowrap; 
+}
+#slide3{
+	background-image: url('../icon/background-3.png');
+}
+
+.inner-container{
+	width: 50%;
+
+}
+.description{
+	width: 50%;
+}
+
+.wrapper{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-flow: row nowrap;
+}
+
+.left-arrow,.right-arrow{
+	width: 14px;
+	height: 29px;
+	margin: 10px;
+}
+.left-arrow{
+	background: url('../icon/left.png') no-repeat;
+}
+.right-arrow{
+	background: url('../icon/right.png') no-repeat;
+}
+.inner-page{
+	width: 219px;
+	box-shadow: 5px 5px 5px #000000;
+	margin: 0;
+	border-radius: 20px;
+}
+.inner-page .swiper-pagination{
+	bottom: 70px;
+}
+.inner-page img{
+	width: 100%;
+	height: 100%;
+
+}
+#slide2 .description-wrapper{
+	float: right;
+}
+#slide2 .wrapper{
+	justify-content: flex-start;
+}
+.android{
+	background-image: url('../icon/Android.png');
+}
+.ios{
+	background-image: url('../icon/iOS.png');
+}
+.android,.ios{
+	display: inline-block;
+	width: 205px;
+	height: 55px;
+	background-position: 0 0;
+}
+.android:hover,.ios:hover{
+	background-position: 205px 0;
+}
+.android:active,.ios:active{
+	background-position: 205px 0;
+}
+
+@media (max-width: 767px){
+	html{
+		height: 150%;
+	}
+
+	#slide1{
+		flex-flow: column nowrap;
+	}
+}
+
+
+
+
+
+
+
+
+
+
