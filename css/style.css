@@ -1,0 +1,261 @@
+
+html{
+  	width: 100%;
+  	height: 100%;
+}
+body{
+  	width: 100%;
+  	height: 100%;
+  	margin: 0;
+  	font-family: 'Microsoft YaHei';
+  	font-size: 14px;
+}
+
+.loading{
+  	width: 100%;
+  	height: 100%;
+  	background-color: rgb(0,122,255);
+
+}
+
+#outer{
+	width: 100%;
+	color: #ffffff;
+	text-align: left;
+	height: 100%;
+}
+
+#slide1,#slide2,#slide3{
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: row nowrap; 
+}
+
+#slide1{
+	background-image: url('../icon/background-1.png');
+}
+#slide2{
+	background-image: url('../icon/background-2.png');
+	flex-flow: row-reverse nowrap; 
+}
+#slide3{
+	background-image: url('../icon/background-3.png');
+}
+
+.inner-container{
+	width: 50%;
+
+}
+.description{
+	width: 50%;
+}
+
+.wrapper{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-flow: row nowrap;
+}
+
+.left-arrow,.right-arrow{
+	width: 14px;
+	height: 29px;
+	margin: 10px;
+}
+.left-arrow{
+	background: url('../icon/left.png') no-repeat;
+}
+.right-arrow{
+	background: url('../icon/right.png') no-repeat;
+}
+.inner-page{
+	width: 219px;
+	box-shadow: 5px 5px 5px #000000;
+	margin: 0;
+	border-radius: 20px;
+}
+.inner-page .swiper-pagination{
+	bottom: 70px;
+}
+.inner-page img{
+	width: 100%;
+	height: 100%;
+
+}
+#slide2 .description-wrapper{
+	float: right;
+}
+#slide2 .wrapper{
+	justify-content: flex-start;
+}
+.android{
+	background-image: url('../icon/Android.png');
+}
+.ios{
+	background-image: url('../icon/iOS.png');
+}
+.android,.ios{
+	display: inline-block;
+	width: 205px;
+	height: 55px;
+	background-position: 0 0;
+}
+.android:hover,.ios:hover{
+	background-position: 205px 0;
+}
+.android:active,.ios:active{
+	background-position: 205px 0;
+}
+.mobile-title{
+	display: none;
+}
+.pc-title{
+	display: block;
+}
+#menu{
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 200px;
+	height: 200px;
+	padding: 12px;
+	z-index: 998;
+}
+#menu>*{
+	width: 48px;
+	height: 48px;
+	border-radius: 24px;
+	position: fixed;
+}
+#menu-open,#menu-close{
+	top: 12px;
+	right: 12px;
+	background-position: 0 0;
+}
+#menu-open{
+	background:url('../icon/open.png') no-repeat;
+}
+#menu-close{
+	background:url('../icon/close.png') no-repeat;
+}
+#menu-peiyang{
+	background:url('../icon/peiyang.png') no-repeat;
+	background-position: 0 0;
+	top: 12px;
+	right: 120px;
+}
+#menu-wenjin{
+	background:url('../icon/wenjin.png') no-repeat;
+	background-position: 0 0;
+	top: 82px;
+	right: 82px;
+}
+#menu-party{
+	background:url('../icon/party.png') no-repeat;
+	background-position: 0 0;
+	top: 120px;
+	right: 12px;
+}
+#menu:hover,#menu>*:hover{
+	background-position: -48px 0;
+}
+#menu:active,#menu>*:active{
+	background-position: -48px 0;
+}
+.menu-transiton{
+	animation: show-menu 1s;
+	display: block;
+}
+
+
+@media (max-width: 767px){
+	html{
+		height: 150%;
+	}
+
+	#slide1,#slide2,#slide3{
+		flex-flow: column nowrap;
+	}
+	.description{
+		width: 60%;
+		text-align: center;
+	}
+	.wrapper{
+		justify-content: center;
+	}
+	#slide2 .wrapper{
+		justify-content: center;
+	}
+	.inner-container{
+		width: 70%;
+	}
+	.mobile-title{
+		display: block;
+		margin: 20px;
+		margin-left: -30%;
+	}
+	.pc-title,.qcode{
+		display: none;
+	}
+	.download-icon{
+		text-align: center;
+	}
+	.article>div>p{
+		text-align: left;
+	}
+	.ios{
+		margin-top: 10px;
+	}
+	.android{
+		margin-bottom: 10px;
+	}
+
+	#menu-peiyang{
+		top: 84px;
+		right: 12px;
+	}
+	#menu-wenjin{
+		top: 156px;
+		right: 12px;
+	}
+	#menu-party{
+		top: 228px;
+		right: 12px;
+	}
+}
+
+@keyframes show-menu{
+	0%{
+		-webkit-transform: rotate(180deg);
+		   -moz-transform: rotate(180deg);
+		    -ms-transform: rotate(180deg);
+		     -o-transform: rotate(180deg);
+		        transform: rotate(180deg);
+	}
+	50%{
+		-webkit-transform: rotate(180deg);
+		   -moz-transform: rotate(180deg);
+		    -ms-transform: rotate(180deg);
+		     -o-transform: rotate(180deg);
+		        transform: rotate(180deg);
+	}
+	100%{
+		-webkit-transform: rotate(-360deg);
+		   -moz-transform: rotate(-360deg);
+		    -ms-transform: rotate(-360deg);
+		     -o-transform: rotate(-360deg);
+		        transform: rotate(-360deg);
+	}
+}
+
+
+
+
+
+
+
