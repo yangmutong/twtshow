@@ -1,55 +1,47 @@
 var outerSwiper = new Swiper ('#outer', {
     direction : 'vertical',
     speed:300,
-    effect:'fade',
     keyboardControl : true,
     slideToClickedSlide:true,
-    preventClicks : false,
-    simulateTouch : false,
+	mousewheelControl : true,
 });
 
 var innerSwiper1 = new Swiper ('#first-inner-container', {
     direction : 'horizontal',
-    speed:1000,
+    speed:500,
     lazyLoading : true,
     lazyLoadingInPrevNext : true,
     effect : 'cube',
 	cube: {
 	  slideShadows: true,
-	  shadow: true,
-	  shadowOffset: 100,
-	  shadowScale: 0.6
+	  shadow: false
 	},
     paginationClickable :true,
     pagination : '.swiper-pagination',
 });
 var innerSwiper2 = new Swiper ('#second-inner-container', {
     direction : 'horizontal',
-    speed:1000,
+    speed:500,
     lazyLoading : true,
     lazyLoadingInPrevNext : true,
     effect : 'cube',
 	cube: {
 	  slideShadows: true,
-	  shadow: true,
-	  shadowOffset: 100,
-	  shadowScale: 0.6
+	  shadow: false
 	},
     paginationClickable :true,
     pagination : '.swiper-pagination',
 });
 var innerSwiper3 = new Swiper ('#third-inner-container', {
     direction : 'horizontal',
-    speed:1000,
+    speed:500,
     lazyLoading : true,
     lazyLoadingInPrevNext : true,
     effect:'flip',
     effect : 'cube',
 	cube: {
 	  slideShadows: true,
-	  shadow: true,
-	  shadowOffset: 100,
-	  shadowScale: 0.6
+	  shadow: false
 	},
     paginationClickable :true,
     pagination : '.swiper-pagination',
