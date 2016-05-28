@@ -4,6 +4,10 @@ var outerSwiper = new Swiper ('#outer', {
     keyboardControl : true,
     slideToClickedSlide:true,
 	mousewheelControl : true,
+	onlyExternal : true,
+	onSlideChangeEnd:function(swiper){
+		setMenu(swiper);
+	},
 });
 
 var innerSwiper1 = new Swiper ('#first-inner-container', {
@@ -37,7 +41,6 @@ var innerSwiper3 = new Swiper ('#third-inner-container', {
     speed:500,
     lazyLoading : true,
     lazyLoadingInPrevNext : true,
-    effect:'flip',
     effect : 'cube',
 	cube: {
 	  slideShadows: true,
@@ -66,13 +69,23 @@ function setDisplay(status){
 
 function switchSlide(id){
 	if (id == 'menu-peiyang') {
-		outerSwiper.slideTo(0,500,false);
+		outerSwiper.slideTo(0,500,true);
 	}else if(id == 'menu-wenjin'){
-		outerSwiper.slideTo(1,500,false);
+		outerSwiper.slideTo(1,500,true);
 	}else if(id == 'menu-party'){
-		outerSwiper.slideTo(2,500,false);
+		outerSwiper.slideTo(2,500,true);
 	}
 }
+var menuArr = document.getElementsByClassName('menu-transition');
+menuArr[1].style.backgroundPositionX = '-48px';
+function setMenu(swiper){
+	window.scrollTo(0,0);
+	Array.prototype.forEach.call(menuArr,function(item){
+		item.style.backgroundPositionX = '0px';
+	});
+	menuArr[swiper.activeIndex + 1].style.backgroundPositionX = '-48px';
+}
+
 window.onload = function(){
 	var swiperArr = [innerSwiper1,innerSwiper2,innerSwiper3];
 	var menu = document.getElementById('menu');
@@ -102,4 +115,30 @@ window.onload = function(){
 		},false);
 	}
 
+	var top = document.getElementById("outer");
+	var pageHeight = top.offsetHeight;
+	var screenHeight = screen.height;
+	var flagNext = false;
+	var flagPre = false;
+	var thresholdNext = pageHeight - screenHeight/2;
+	var thresholdPre = 2*screenHeight/3;
+	top.addEventListener('touchstart',function(event){
+		var touchY = outerSwiper.touches.currentY;
+		if(touchY > thresholdNext){
+			if(flagNext){
+				flagNext = false;
+				outerSwiper.slideNext();
+			}
+			flagNext = true;
+		}else if (touchY < thresholdPre){
+			if (flagPre){
+				flagPre = false;
+				outerSwiper.slidePrev();
+			}
+			flagPre = true;
+		}else {
+			flagNext = false;
+			flagPre = false;
+		}
+	});
 }
