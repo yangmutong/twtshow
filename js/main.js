@@ -120,7 +120,7 @@ window.onload = function(){
 	var flagNext = false;
 	var flagPre = false;
 	var thresholdNext = pageHeight - screenHeight/2;
-	var thresholdPre = 2*screenHeight/3;
+	var thresholdPre = screenHeight/2;
 	top.addEventListener('touchstart',function(event){
 		var touchY = outerSwiper.touches.currentY;
 		if(touchY > thresholdNext){
