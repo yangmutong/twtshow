@@ -167,22 +167,14 @@ body{
 }
 
 @media (max-width: 766px){
-	html{
-		height: 150%;
-		min-height: 986px;
+	.inner-container{
+		display: none;
 	}
-
 	#slide1,#slide2,#slide3{
 		flex-flow: column nowrap;
 	}
 	.description{
 		text-align: center;
-	}
-	.wrapper{
-		justify-content: center;
-	}
-	#slide2 .wrapper{
-		justify-content: center;
 	}
 	.mobile-title{
 		display: block;

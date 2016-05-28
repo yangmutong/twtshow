@@ -4,7 +4,6 @@ var outerSwiper = new Swiper ('#outer', {
     keyboardControl : true,
     slideToClickedSlide:true,
 	mousewheelControl : true,
-	onlyExternal : true,
 	onSlideChangeEnd:function(swiper){
 		setMenu(swiper);
 	},
@@ -113,34 +112,4 @@ window.onload = function(){
 			swiperArr[this.num].slideNext();
 		},false);
 	}
-
-	var top = document.getElementById("outer");
-	var pageHeight = top.offsetHeight;
-	var screenHeight = screen.height;
-	var flagNext = false;
-	var flagPre = false;
-	var thresholdNext = pageHeight - screenHeight/2;
-	var thresholdPre = screenHeight/2;
-	top.addEventListener('touchstart',function(event){
-		var touchY = outerSwiper.touches.currentY;
-		if (event.target.className != 'left-arrow' || event.target.className != 'right-arrow') {
-			if(touchY > thresholdNext){
-			if(flagNext){
-				flagNext = false;
-				outerSwiper.slideNext();
-			}
-			flagNext = true;
-			}else if (touchY < thresholdPre){
-				if (flagPre){
-					flagPre = false;
-					outerSwiper.slidePrev();
-				}
-				flagPre = true;
-			}else {
-				flagNext = false;
-				flagPre = false;
-			}
-		}
-		
-	});
 }
