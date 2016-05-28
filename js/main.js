@@ -79,7 +79,6 @@ function switchSlide(id){
 var menuArr = document.getElementsByClassName('menu-transition');
 menuArr[1].style.backgroundPositionX = '-48px';
 function setMenu(swiper){
-	window.scrollTo(0,0);
 	Array.prototype.forEach.call(menuArr,function(item){
 		item.style.backgroundPositionX = '0px';
 	});
