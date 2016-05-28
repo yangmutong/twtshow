@@ -123,21 +123,24 @@ window.onload = function(){
 	var thresholdPre = screenHeight/2;
 	top.addEventListener('touchstart',function(event){
 		var touchY = outerSwiper.touches.currentY;
-		if(touchY > thresholdNext){
+		if (event.target.className != 'left-arrow' || event.target.className != 'right-arrow') {
+			if(touchY > thresholdNext){
 			if(flagNext){
 				flagNext = false;
 				outerSwiper.slideNext();
 			}
 			flagNext = true;
-		}else if (touchY < thresholdPre){
-			if (flagPre){
+			}else if (touchY < thresholdPre){
+				if (flagPre){
+					flagPre = false;
+					outerSwiper.slidePrev();
+				}
+				flagPre = true;
+			}else {
+				flagNext = false;
 				flagPre = false;
-				outerSwiper.slidePrev();
 			}
-			flagPre = true;
-		}else {
-			flagNext = false;
-			flagPre = false;
 		}
+		
 	});
 }
