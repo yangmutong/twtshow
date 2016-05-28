@@ -1,9 +1,10 @@
-
 html{
   	width: 100%;
   	height: 100%;
 }
 body{
+	background-color: #000;
+	padding: 0;
   	width: 100%;
   	height: 100%;
   	margin: 0;
@@ -47,14 +48,6 @@ body{
 	background-image: url('../icon/background-3.png');
 }
 
-.inner-container{
-	width: 50%;
-
-}
-.description{
-	width: 50%;
-}
-
 .wrapper{
 	display: flex;
 	justify-content: flex-end;
@@ -74,8 +67,7 @@ body{
 	background: url('../icon/right.png') no-repeat;
 }
 .inner-page{
-	width: 219px;
-	box-shadow: 5px 5px 5px #000000;
+	width: 200px;
 	margin: 0;
 	border-radius: 20px;
 }
@@ -83,6 +75,7 @@ body{
 	bottom: 70px;
 }
 .inner-page img{
+	border-radius: 24px;
 	width: 100%;
 	height: 100%;
 
@@ -121,8 +114,6 @@ body{
 	position: fixed;
 	top: 0;
 	right: 0;
-	width: 200px;
-	height: 200px;
 	padding: 12px;
 	z-index: 998;
 }
@@ -161,28 +152,30 @@ body{
 	top: 120px;
 	right: 12px;
 }
-#menu:hover,#menu>*:hover{
-	background-position: -48px 0;
-}
 #menu:active,#menu>*:active{
 	background-position: -48px 0;
 }
-.menu-transiton{
-	animation: show-menu 1s;
+.menu-transition{
+	animation: show-menu 0.5s;
 	display: block;
 }
+.swiper-slide-active .description{
+	animation: show-text 1s;
+}
+.swiper-slide-active .inner-container{
+	animation: show-text 0.5s;
+}
 
-
-@media (max-width: 767px){
+@media (max-width: 766px){
 	html{
 		height: 150%;
+		min-height: 986px;
 	}
 
 	#slide1,#slide2,#slide3{
 		flex-flow: column nowrap;
 	}
 	.description{
-		width: 60%;
 		text-align: center;
 	}
 	.wrapper{
@@ -190,9 +183,6 @@ body{
 	}
 	#slide2 .wrapper{
 		justify-content: center;
-	}
-	.inner-container{
-		width: 70%;
 	}
 	.mobile-title{
 		display: block;
@@ -205,13 +195,21 @@ body{
 	.download-icon{
 		text-align: center;
 	}
+	.article>div{
+		width: 80%;
+		margin: 0 auto;
+	}
 	.article>div>p{
 		text-align: left;
 	}
 	.ios{
-		margin-top: 10px;
+		margin:0 auto;
+		display: block;
+		width: ;
 	}
 	.android{
+		display: block;
+		margin: 0 auto;
 		margin-bottom: 10px;
 	}
 
@@ -228,28 +226,53 @@ body{
 		right: 12px;
 	}
 }
-
-@keyframes show-menu{
+@keyframes show-text{
 	0%{
-		-webkit-transform: rotate(180deg);
-		   -moz-transform: rotate(180deg);
-		    -ms-transform: rotate(180deg);
-		     -o-transform: rotate(180deg);
-		        transform: rotate(180deg);
+		-webkit-transform: translateY(100px);
+		   -moz-transform: translateY(100px);
+		    -ms-transform: translateY(100px);
+		     -o-transform: translateY(100px);
+		        transform: translateY(100px);
+		opacity: 0;
 	}
-	50%{
-		-webkit-transform: rotate(180deg);
-		   -moz-transform: rotate(180deg);
-		    -ms-transform: rotate(180deg);
-		     -o-transform: rotate(180deg);
-		        transform: rotate(180deg);
+	25%{
+		-webkit-transform: translateY(50px);
+		   -moz-transform: translateY(50px);
+		    -ms-transform: translateY(50px);
+		     -o-transform: translateY(50px);
+		        transform: translateY(50px);
+		opacity: 0.3;
 	}
 	100%{
-		-webkit-transform: rotate(-360deg);
-		   -moz-transform: rotate(-360deg);
-		    -ms-transform: rotate(-360deg);
-		     -o-transform: rotate(-360deg);
-		        transform: rotate(-360deg);
+		-webkit-transform: translateY(0);
+		   -moz-transform: translateY(0);
+		    -ms-transform: translateY(0);
+		     -o-transform: translateY(0);
+		        transform: translateY(0);
+		opacity: 1;
+	}
+}
+@keyframes show-menu{
+	0%{
+		-webkit-transform: rotate(180deg) translateX(500px);
+		   -moz-transform: rotate(180deg) translateX(500px);
+		    -ms-transform: rotate(180deg) translateX(500px);
+		     -o-transform: rotate(180deg) translateX(500px);
+		        transform: rotate(180deg) translateX(500px);
+	}
+	50%{
+		-webkit-transform: rotate(180deg) translateX(-20px);
+		   -moz-transform: rotate(180deg) translateX(-20px);
+		    -ms-transform: rotate(180deg) translateX(-20px);
+		     -o-transform: rotate(180deg) translateX(-20px);
+		        transform: rotate(180deg) translateX(-20px);
+	}
+	100%{
+		-webkit-transform: rotate(-360deg) translateX(0);
+		   -moz-transform: rotate(-360deg) translateX(0);
+		    -ms-transform: rotate(-360deg) translateX(0);
+		     -o-transform: rotate(-360deg) translateX(0);
+		        transform: rotate(-360deg) translateX(0);
 	}
 }
 
