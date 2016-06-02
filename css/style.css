@@ -166,28 +166,28 @@ body{
 	animation: show-text 0.5s;
 }
 
-@media (max-width: 766px){
-	html{
-		height: 150%;
-		min-height: 986px;
-	}
 
+@media (max-width: 766px){
+	.inner-container{
+		display: none;
+	}
 	#slide1,#slide2,#slide3{
 		flex-flow: column nowrap;
 	}
 	.description{
 		text-align: center;
 	}
-	.wrapper{
-		justify-content: center;
-	}
-	#slide2 .wrapper{
-		justify-content: center;
-	}
 	.mobile-title{
 		display: block;
 		margin: 20px;
+		font-size: 32px;
 		margin-left: -30%;
+	}
+	.article h3{
+		font-size: 24px;
+	}
+	.article p{
+		font-size: 16px;
 	}
 	.pc-title,.qcode{
 		display: none;
