@@ -2,11 +2,23 @@ var outerSwiper = new Swiper ('#outer', {
     direction : 'vertical',
     speed:300,
     keyboardControl : true,
-    slideToClickedSlide:true,
 	mousewheelControl : true,
 	onSlideChangeEnd:function(swiper){
 		setMenu(swiper);
 	},
+});
+
+var mobileSwiper = new Swiper("#mobile-inner-container",{
+	direction : 'horizontal',
+	speed:800,
+	effect : 'fade',
+	fade: {
+		crossFade: false,
+	},
+	lazyLoading : true,
+	lazyLoadingInPrevNext : true,
+	paginationClickable :true,
+	pagination : '.swiper-pagination',
 });
 
 var innerSwiper1 = new Swiper ('#first-inner-container', {
@@ -82,7 +94,7 @@ function setMenu(swiper){
 }
 
 window.onload = function(){
-	var swiperArr = [innerSwiper1,innerSwiper2,innerSwiper3];
+	var swiperArr = [mobileSwiper,innerSwiper1,innerSwiper2,innerSwiper3];
 	var menu = document.getElementById('menu');
 	menu.addEventListener('click',function(event){
 		if (event.target.id == 'menu-open') {
@@ -109,4 +121,4 @@ window.onload = function(){
 			swiperArr[this.num].slideNext();
 		},false);
 	}
-}
+};
