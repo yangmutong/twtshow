@@ -15,9 +15,9 @@ var mobileSwiper = new Swiper("#mobile-inner-container",{
 	slidesPerView: 3,
 	centeredSlides: true,
 	coverflow: {
-		rotate: 30,
+		rotate: 20,
 		stretch: 10,
-		depth: 60,
+		depth: 150,
 		modifier: 2,
 		slideShadows : true
 	},
