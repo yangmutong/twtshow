@@ -132,7 +132,8 @@ body{
 	background-position: 0 0;
 }
 #menu-open{
-	background:url('../icon/open.png') no-repeat;
+	background:url('../icon/close.png') no-repeat;
+	background-position: -48px 0;
 }
 #menu-close{
 	background:url('../icon/close.png') no-repeat;
@@ -190,7 +191,11 @@ body{
 		height: 100%;
 	}
 	#mobile-slide .inner-page{
-		width: 100%;
+		width: 90%;
+		margin: 0 auto;
+	}
+	#mobile-slide .inner-page img{
+		border-radius: 16px;
 	}
 	.description{
 		text-align: center;
@@ -231,18 +236,18 @@ body{
 		margin-bottom: 10px;
 	}
 
-	#menu-peiyang{
-		top: 84px;
-		right: 12px;
-	}
-	#menu-wenjin{
-		top: 156px;
-		right: 12px;
-	}
-	#menu-party{
-		top: 228px;
-		right: 12px;
-	}
+	/*#menu-peiyang{*/
+		/*top: 76px;*/
+		/*right: 12px;*/
+	/*}*/
+	/*#menu-wenjin{*/
+		/*top: 140px;*/
+		/*right: 12px;*/
+	/*}*/
+	/*#menu-party{*/
+		/*top: 204px;*/
+		/*right: 12px;*/
+	/*}*/
 }
 @keyframes show-text{
 	0%{

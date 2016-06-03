@@ -64,6 +64,21 @@ var innerSwiper3 = new Swiper ('#third-inner-container', {
     pagination : '.swiper-pagination',
 });
 
+var slideIndex = {
+	"menu-peiyang":1,
+	"menu-wenjin":2,
+	"menu-party":3
+};
+var menuArr = document.getElementsByClassName('menu-transition');
+if (screen.width > 766){
+	menuArr[1].style.backgroundPositionX = '-48px';
+	setDisplay("block");
+	slideIndex = {
+		"menu-peiyang":0,
+		"menu-wenjin":1,
+		"menu-party":2
+	}
+}
 function setDisplay(status){
 	var menuArr = document.querySelectorAll('#menu>*');
 	if (status == 'none') {
@@ -82,21 +97,25 @@ function setDisplay(status){
 }
 
 function switchSlide(id){
-	if (id == 'menu-peiyang') {
-		outerSwiper.slideTo(0,500,true);
-	}else if(id == 'menu-wenjin'){
-		outerSwiper.slideTo(1,500,true);
-	}else if(id == 'menu-party'){
-		outerSwiper.slideTo(2,500,true);
-	}
+	outerSwiper.slideTo(slideIndex[id],500,true);
+	console.log(slideIndex[id]);
 }
-var menuArr = document.getElementsByClassName('menu-transition');
-menuArr[1].style.backgroundPositionX = '-48px';
+
+
 function setMenu(swiper){
 	Array.prototype.forEach.call(menuArr,function(item){
 		item.style.backgroundPositionX = '0px';
 	});
-	menuArr[swiper.activeIndex + 1].style.backgroundPositionX = '-48px';
+	if(screen.width < 766){
+		if (swiper.activeIndex == 0){
+
+		}else{
+			menuArr[swiper.activeIndex].style.backgroundPositionX = '-48px';
+		}
+	}else {
+		menuArr[swiper.activeIndex + 1].style.backgroundPositionX = '-48px';
+	}
+
 }
 
 window.onload = function(){
