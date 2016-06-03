@@ -11,9 +11,15 @@ var outerSwiper = new Swiper ('#outer', {
 var mobileSwiper = new Swiper("#mobile-inner-container",{
 	direction : 'horizontal',
 	speed:800,
-	effect : 'fade',
-	fade: {
-		crossFade: false,
+	effect : 'coverflow',
+	slidesPerView: 3,
+	centeredSlides: true,
+	coverflow: {
+		rotate: 30,
+		stretch: 10,
+		depth: 60,
+		modifier: 2,
+		slideShadows : true
 	},
 	lazyLoading : true,
 	lazyLoadingInPrevNext : true,
@@ -94,7 +100,7 @@ function setMenu(swiper){
 }
 
 window.onload = function(){
-	var swiperArr = [mobileSwiper,innerSwiper1,innerSwiper2,innerSwiper3];
+	var swiperArr = [innerSwiper1,innerSwiper2,innerSwiper3];
 	var menu = document.getElementById('menu');
 	menu.addEventListener('click',function(event){
 		if (event.target.id == 'menu-open') {
