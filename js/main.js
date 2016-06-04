@@ -122,6 +122,7 @@ window.onload = function(){
 	var swiperArr = [innerSwiper1,innerSwiper2,innerSwiper3];
 	var menu = document.getElementById('menu');
 	menu.addEventListener('click',function(event){
+		event.stopPropagation();
 		if (event.target.id == 'menu-open') {
 			setDisplay('block');
 		}else if (event.target.id == 'menu-close') {
@@ -136,6 +137,7 @@ window.onload = function(){
 	for(var i = 0;i < left.length;i ++){
 		left[i].num = i;
 		left[i].addEventListener('click',function(event){
+			event.stopPropagation();
 			swiperArr[this.num].slidePrev();
 		},false);
 	}
@@ -143,6 +145,7 @@ window.onload = function(){
 	for(var i = 0;i < right.length;i ++){
 		right[i].num = i;
 		right[i].addEventListener('click',function(event){
+			event.stopPropagation();
 			swiperArr[this.num].slideNext();
 		},false);
 	}

@@ -170,6 +170,13 @@ body{
 	animation: show-text 0.5s;
 }
 
+.qcode{
+	margin-bottom: 20px;
+}
+.qcode img{
+	box-shadow: 0 0 10px #000;
+	border-radius: 5px;
+}
 
 @media (max-width: 766px){
 	.inner-container{
@@ -196,6 +203,9 @@ body{
 	}
 	#mobile-slide .inner-page img{
 		border-radius: 16px;
+	}
+	#mobile-slide .swiper-pagination{
+		bottom: 35px;
 	}
 	.description{
 		text-align: center;
