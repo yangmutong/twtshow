@@ -235,15 +235,21 @@ body{
 	.article>div>p{
 		text-align: left;
 	}
-	.ios{
+	.ios,.android{
 		margin:0 auto;
 		display: block;
-		width: ;
+		width: 112px;
+		height: 30px;
+		background-size: 224px 30px;
 	}
 	.android{
-		display: block;
-		margin: 0 auto;
 		margin-bottom: 10px;
+	}
+	.android:hover,.ios:hover{
+		background-position: 112px 0;
+	}
+	.android:active,.ios:active{
+		background-position: 112px 0;
 	}
 
 	/*#menu-peiyang{*/
