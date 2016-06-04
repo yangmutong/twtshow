@@ -212,7 +212,7 @@ body{
 	}
 	.mobile-title{
 		display: block;
-		margin: 20px;
+		margin: 0;
 		font-size: 32px;
 		margin-left: -30%;
 	}
@@ -238,32 +238,32 @@ body{
 	.ios,.android{
 		margin:0 auto;
 		display: block;
-		width: 112px;
-		height: 30px;
-		background-size: 224px 30px;
+		width: 167px;
+		height: 45px;
+		background-size: 334px 45px;
 	}
 	.android{
 		margin-bottom: 10px;
 	}
 	.android:hover,.ios:hover{
-		background-position: 112px 0;
+		background-position: 167px 0;
 	}
 	.android:active,.ios:active{
-		background-position: 112px 0;
+		background-position: 167px 0;
 	}
 
-	/*#menu-peiyang{*/
-		/*top: 76px;*/
-		/*right: 12px;*/
-	/*}*/
-	/*#menu-wenjin{*/
-		/*top: 140px;*/
-		/*right: 12px;*/
-	/*}*/
-	/*#menu-party{*/
-		/*top: 204px;*/
-		/*right: 12px;*/
-	/*}*/
+	#menu-peiyang{
+		top: 76px;
+		right: 12px;
+	}
+	#menu-wenjin{
+		top: 140px;
+		right: 12px;
+	}
+	#menu-party{
+		top: 204px;
+		right: 12px;
+	}
 }
 @keyframes show-text{
 	0%{
