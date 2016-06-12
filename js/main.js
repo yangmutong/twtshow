@@ -21,6 +21,8 @@ var mobileSwiper = new Swiper("#mobile-inner-container",{
 		modifier: 2,
 		slideShadows : true
 	},
+	autoplay : 1500,
+	autoplayDisableOnInteraction : false,
 	lazyLoading : true,
 	lazyLoadingInPrevNext : true,
 	paginationClickable :true,
@@ -34,6 +36,8 @@ var innerSwiper1 = new Swiper ('#first-inner-container', {
 	fade: {
 		crossFade: false,
 	},
+	autoplay : 1500,
+	autoplayDisableOnInteraction : false,
     lazyLoading : true,
     lazyLoadingInPrevNext : true,
     paginationClickable :true,
@@ -46,6 +50,8 @@ var innerSwiper2 = new Swiper ('#second-inner-container', {
 	fade: {
 		crossFade: false,
 	},
+	autoplay : 1500,
+	autoplayDisableOnInteraction : false,
     lazyLoading : true,
     lazyLoadingInPrevNext : true,
     paginationClickable :true,
@@ -58,6 +64,8 @@ var innerSwiper3 = new Swiper ('#third-inner-container', {
 	fade: {
 		crossFade: false,
 	},
+	autoplay : 1500,
+	autoplayDisableOnInteraction : false,
     lazyLoading : true,
     lazyLoadingInPrevNext : true,
     paginationClickable :true,
@@ -69,9 +77,10 @@ var slideIndex = {
 	"menu-wenjin":2,
 	"menu-party":3
 };
-var menuArr = document.getElementsByClassName('menu-transition');
-if (screen.width > 766){
-	menuArr[1].style.backgroundPositionX = '-48px';
+var TranMenuArr = document.getElementsByClassName('menu-transition');
+var screenWidth = document.body.clientWidth;
+if (screenWidth > 766){
+	TranMenuArr[0].style.backgroundPositionX = '-48px';
 	setDisplay("block");
 	slideIndex = {
 		"menu-peiyang":0,
@@ -103,17 +112,17 @@ function switchSlide(id){
 
 
 function setMenu(swiper){
-	Array.prototype.forEach.call(menuArr,function(item){
+	Array.prototype.forEach.call(TranMenuArr,function(item){
 		item.style.backgroundPositionX = '0px';
 	});
-	if(screen.width < 766){
+	if( screenWidth < 766){
 		if (swiper.activeIndex == 0){
 
 		}else{
-			menuArr[swiper.activeIndex].style.backgroundPositionX = '-48px';
+			TranMenuArr[swiper.activeIndex - 1].style.backgroundPositionX = '-36px';
 		}
 	}else {
-		menuArr[swiper.activeIndex + 1].style.backgroundPositionX = '-48px';
+		TranMenuArr[swiper.activeIndex].style.backgroundPositionX = '-48px';
 	}
 
 }
