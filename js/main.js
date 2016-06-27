@@ -2,54 +2,92 @@ var outerSwiper = new Swiper ('#outer', {
     direction : 'vertical',
     speed:300,
     keyboardControl : true,
-    slideToClickedSlide:true,
 	mousewheelControl : true,
-	onlyExternal : true,
 	onSlideChangeEnd:function(swiper){
 		setMenu(swiper);
+	}
+});
+
+var mobileSwiper = new Swiper("#mobile-inner-container",{
+	direction : 'horizontal',
+	speed:800,
+	effect : 'coverflow',
+	slidesPerView: 3,
+	centeredSlides: true,
+	coverflow: {
+		rotate: 20,
+		stretch: 10,
+		depth: 150,
+		modifier: 2,
+		slideShadows : true
 	},
+	autoplay : 1500,
+	autoplayDisableOnInteraction : false,
+	lazyLoading : true,
+	lazyLoadingInPrevNext : true,
+	paginationClickable :true,
+	pagination : '.swiper-pagination'
 });
 
 var innerSwiper1 = new Swiper ('#first-inner-container', {
     direction : 'horizontal',
-    speed:500,
+    speed:800,
+	effect : 'fade',
+	fade: {
+		crossFade: false
+	},
+	autoplay : 1500,
+	autoplayDisableOnInteraction : false,
     lazyLoading : true,
     lazyLoadingInPrevNext : true,
-    effect : 'cube',
-	cube: {
-	  slideShadows: true,
-	  shadow: false
-	},
     paginationClickable :true,
-    pagination : '.swiper-pagination',
+    pagination : '.swiper-pagination'
 });
 var innerSwiper2 = new Swiper ('#second-inner-container', {
     direction : 'horizontal',
-    speed:500,
+	speed:800,
+	effect : 'fade',
+	fade: {
+		crossFade: false
+	},
+	autoplay : 1500,
+	autoplayDisableOnInteraction : false,
     lazyLoading : true,
     lazyLoadingInPrevNext : true,
-    effect : 'cube',
-	cube: {
-	  slideShadows: true,
-	  shadow: false
-	},
     paginationClickable :true,
-    pagination : '.swiper-pagination',
+    pagination : '.swiper-pagination'
 });
 var innerSwiper3 = new Swiper ('#third-inner-container', {
     direction : 'horizontal',
-    speed:500,
+	speed:800,
+	effect : 'fade',
+	fade: {
+		crossFade: false
+	},
+	autoplay : 1500,
+	autoplayDisableOnInteraction : false,
     lazyLoading : true,
     lazyLoadingInPrevNext : true,
-    effect : 'cube',
-	cube: {
-	  slideShadows: true,
-	  shadow: false
-	},
     paginationClickable :true,
-    pagination : '.swiper-pagination',
+    pagination : '.swiper-pagination'
 });
 
+var slideIndex = {
+	"menu-peiyang":1,
+	"menu-wenjin":2,
+	"menu-party":3
+};
+var TranMenuArr = document.getElementsByClassName('menu-transition');
+var screenWidth = document.body.clientWidth;
+if (screenWidth > 766){
+	TranMenuArr[0].style.backgroundPositionX = '-48px';
+	setDisplay("block");
+	slideIndex = {
+		"menu-peiyang":0,
+		"menu-wenjin":1,
+		"menu-party":2
+	}
+}
 function setDisplay(status){
 	var menuArr = document.querySelectorAll('#menu>*');
 	if (status == 'none') {
@@ -68,27 +106,32 @@ function setDisplay(status){
 }
 
 function switchSlide(id){
-	if (id == 'menu-peiyang') {
-		outerSwiper.slideTo(0,500,true);
-	}else if(id == 'menu-wenjin'){
-		outerSwiper.slideTo(1,500,true);
-	}else if(id == 'menu-party'){
-		outerSwiper.slideTo(2,500,true);
-	}
+	outerSwiper.slideTo(slideIndex[id],500,true);
+	console.log(slideIndex[id]);
 }
-var menuArr = document.getElementsByClassName('menu-transition');
-menuArr[1].style.backgroundPositionX = '-48px';
+
+
 function setMenu(swiper){
-	Array.prototype.forEach.call(menuArr,function(item){
+	Array.prototype.forEach.call(TranMenuArr,function(item){
 		item.style.backgroundPositionX = '0px';
 	});
-	menuArr[swiper.activeIndex + 1].style.backgroundPositionX = '-48px';
+	if( screenWidth < 766){
+		if (swiper.activeIndex == 0){
+
+		}else{
+			TranMenuArr[swiper.activeIndex - 1].style.backgroundPositionX = '-36px';
+		}
+	}else {
+		TranMenuArr[swiper.activeIndex].style.backgroundPositionX = '-48px';
+	}
+
 }
 
 window.onload = function(){
 	var swiperArr = [innerSwiper1,innerSwiper2,innerSwiper3];
 	var menu = document.getElementById('menu');
 	menu.addEventListener('click',function(event){
+		event.stopPropagation();
 		if (event.target.id == 'menu-open') {
 			setDisplay('block');
 		}else if (event.target.id == 'menu-close') {
@@ -103,6 +146,7 @@ window.onload = function(){
 	for(var i = 0;i < left.length;i ++){
 		left[i].num = i;
 		left[i].addEventListener('click',function(event){
+			event.stopPropagation();
 			swiperArr[this.num].slidePrev();
 		},false);
 	}
@@ -110,37 +154,8 @@ window.onload = function(){
 	for(var i = 0;i < right.length;i ++){
 		right[i].num = i;
 		right[i].addEventListener('click',function(event){
+			event.stopPropagation();
 			swiperArr[this.num].slideNext();
 		},false);
 	}
-
-	var top = document.getElementById("outer");
-	var pageHeight = top.offsetHeight;
-	var screenHeight = screen.height;
-	var flagNext = false;
-	var flagPre = false;
-	var thresholdNext = pageHeight - screenHeight/2;
-	var thresholdPre = screenHeight/2;
-	top.addEventListener('touchstart',function(event){
-		var touchY = outerSwiper.touches.currentY;
-		if (event.target.className != 'left-arrow' || event.target.className != 'right-arrow') {
-			if(touchY > thresholdNext){
-			if(flagNext){
-				flagNext = false;
-				outerSwiper.slideNext();
-			}
-			flagNext = true;
-			}else if (touchY < thresholdPre){
-				if (flagPre){
-					flagPre = false;
-					outerSwiper.slidePrev();
-				}
-				flagPre = true;
-			}else {
-				flagNext = false;
-				flagPre = false;
-			}
-		}
-		
-	});
-}
+};
